@@ -36,7 +36,7 @@ public class FancyNumber {
 				if(count>=4) {
 					check=1;
 					break;
-				}else {
+				} else {
 					count=0;
 				}
 			}
