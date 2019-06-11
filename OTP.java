@@ -1,11 +1,8 @@
 package java_prac;
 import java.util.*;
 public class OTP {
-	
 	static String otp ="";
-	
 	public static void main(String[] args) {
-	
 		 Scanner scan = new Scanner(System.in);
 		 System.out.println("... OTP Generator ...\n");
 		 System.out.print("Account Holder Name : ");
@@ -30,7 +27,6 @@ public class OTP {
 				}
 			}
 		 }
-		 
 		 userMethod(acName, acNo, acType);
 		 System.out.print("\nYour OTP is "+otp);
 		 scan.close();
@@ -42,14 +38,18 @@ public class OTP {
 		for (int i = 0; i < 5; i++) {
 			temp +=(Integer.parseInt( String.valueOf((num.substring(0,5)).charAt(i))));
 		}
-		otp += ((temp/10)+(temp%10))+String.valueOf(name.charAt(0));
+		while((String.valueOf(temp)).length()!=1) {
+			temp = ((temp/10)+(temp%10));
+		}
+		otp +=temp;
 		temp=0;
+		otp+=String.valueOf(name.charAt(0));
 		for (int i = 0; i < 5; i++) {
 			temp +=(Integer.parseInt( String.valueOf((num.substring(5,10)).charAt(i))));
 		}
-		otp += ((temp/10)+(temp%10))+String.valueOf(name.charAt(name.length()-1))+no%10;
-
-		
+		while((String.valueOf(temp)).length()!=1) {
+			temp = ((temp/10)+(temp%10));
+		}
+		otp +=temp+String.valueOf(name.charAt(name.length()-1))+no%10;	
 	}
-
 }
